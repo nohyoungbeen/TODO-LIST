@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="script.js"></script> -->
+</head>
+<style>
+
+.list-box{
+    width: 500px;
+    background-color: rgb(219, 188, 159);
+}
+
+.title{
+    background-color: darkorange;
+    color: #fff;
+}
+
+.li{
+    display: none;
+}
+
+</style>
+
+<body>
+    <div class="list-box">
+        <h1 class="title">TODO LIST</h1>
+        <label for="todo-list">
+            <input type="text">
+            <button id="add">Add</button>
+                <ul id="list">
+                    <li class="todo">
+                            <input type="checkbox" class="check">home
+                            <button id="remove1" class="delete">delete</button>
+                    </li>
+
+                    <li class="todo">
+                            <input type="checkbox" class="check">work
+                        <button id="remove2" class="delete">delete</button>
+                    </li>
+
+                    <li class="todo">
+                            <input type="checkbox" class="check">cleanup
+                        <button id="remove3" class="delete">delete</button>
+                    </li>
+                </ul>
+        </label>
+    </div>
+    <script>
+        var add = document.querySelector("#add")
+        console.log(add)
+        add.onclick = function() {
+            const list = document.getElementById('list')
+            const li = document.createElement('li')
+            const checkbox = document.createElement('input') //기본 타입은 text로 된다!
+            checkbox.type = 'checkbox'
+            const text = document.createTextNode('TodoList')
+            const button = document.createElement('button')
+            const del = document.createTextNode('delete')
+            li.appendChild(checkbox)
+            li.appendChild(text)
+            li.appendChild(button)
+            button.appendChild(del)
+            list.appendChild(li)
+        }
+
+        const deleteThis = document.querySelector('.delete')
+        console.log(deleteThis)
+        const todo = document.querySelector('.todo')
+        console.log(todo)
+
+        deleteThis.addEventListener('click', function() {
+            alert('delete?')
+            todo.remove()
+        })
+
+
+    </script>
+</body>
+</html>
