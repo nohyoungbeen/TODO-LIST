@@ -1,0 +1,13 @@
+.list-box{
+    width: 500px;
+    background-color: rgb(219, 188, 159);
+}
+
+.title{
+    background-color: darkorange;
+    color: #fff;
+}
+
+.li{
+    display: none;
+}
