@@ -1,5 +1,5 @@
 const todos = ['home', 'work', 'cleanup']
-const deletes = document.querySelectorAll('.delete')
+
 const ul = document.querySelector('ul')
 for(let i = 0; i < todos.length; i++) {
     const li = document.createElement('li')
@@ -17,9 +17,10 @@ for(let i = 0; i < todos.length; i++) {
     li.append(button)
     button.append('delete')
 }
+const deletes = document.querySelectorAll('.delete')
 for(let i = 0; i < deletes.length; i++){
     deletes[i].addEventListener('click',function(e){
-        e.target.parentNode.remove()
+        removeTodo(e)
         //e.target : 이벤트가 발생한 요소.
     })
 }
@@ -33,11 +34,10 @@ add.addEventListener('click',function(){
 
         const checkbox = document.createElement('input')
         const listNode = document.querySelector('#list')
-        const button = document.createEl=ement('button')
+        const button = document.createElement('button')
         const liNode = document.createElement('li')
 
         checkbox.type = 'checkbox'
-        liNode.append(list[i])
         liNode.append(checkbox)
         liNode.append(input.value)
         liNode.append(button)
@@ -45,7 +45,11 @@ add.addEventListener('click',function(){
         listNode.append(liNode)
         
         button.addEventListener('click',function(e){
-            e.target.parentNode.remove()
+            removeTodo(e)
         })
     }
 })
+
+function removeTodo(e){
+    e.target.parentNode.remove()
+}
