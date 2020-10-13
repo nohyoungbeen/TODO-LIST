@@ -1,3 +1,17 @@
+const todos = ['todo1', 'todo2'] //db라고 생각
+
+for(let i = 0; i < todos.length; i++){
+    const ul = document.querySelector('#list')
+    const li = document.createElement('li')
+    const button = document.createElement('button')
+    ul.append(li)
+    li.innerHTML =`<input type="checkbox">${todos[i]}`
+    li.append(button)
+    button.append("delete")
+    button.addEventListener('click', remove)
+}
+
+
 const add = document.querySelector('#add')
 //index.html 파일의  <button id="add">Add</button> 파일을 불러와 js파일에서 사용할 수 있도록 어딘가에 존재하게한다
 const input = document.querySelector('#todoValue')
