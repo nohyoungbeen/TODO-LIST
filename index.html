@@ -3,32 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6c9b9f27ca.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="list-box">
-        <h1 class="title">TODO LIST</h1>
-        <label for="todo-list">
-            <input type="text" id="todoValue">
-            <button id="add">Add</button>
-                <ul id="list">
-                    <!-- <li class="todo">
-                        <input type="checkbox" class="check">home
-                        <button id="remove1" class="delete">delete</button>
-                    </li>
+    <div class="container">
+        <div class="list-box">
+            <h1 class="title"><i class="fas fa-list-ol" id="star"></i> 할 일 목 록</h1>
+            <label for="todo-list">
+                <input type="text" id="todoValue">
+                <button id="add">추가</button>
+                    <ul id="list">
+                        <!-- <li class="todo">
+                            <input type="checkbox" class="check">home
+                            <button id="remove1" class="delete">delete</button>
+                        </li>
 
-                    <li class="todo">
-                        <input type="checkbox" class="check">work
-                        <button id="remove2" class="delete">delete</button>
-                    </li>
+                        <li class="todo">
+                            <input type="checkbox" class="check">work
+                            <button id="remove2" class="delete">delete</button>
+                        </li>
 
-                    <li class="todo">
-                        <input type="checkbox" class="check">cleanup
-                        <button id="remove3" class="delete">delete</button>
-                    </li> -->
-                </ul>
-        </label>
+                        <li class="todo">
+                            <input type="checkbox" class="check">cleanup
+                            <button id="remove3" class="delete">delete</button>
+                        </li> -->
+                    </ul>
+            </label>
+        </div>
     </div>
 
     <script src="./index.js"></script>
