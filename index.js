@@ -1,4 +1,4 @@
-const todos = [{title : 'todo1'}, {title :'todo2'}] //db라고 생각
+const todos = [{title : '출근'}, {title :'공부'}] //db라고 생각
 const add = document.querySelector('#add')
 //index.html 파일의  <button id="add">Add</button> 파일을 불러와 js파일에서 사용할 수 있도록 어딘가에 존재하게한다
 const input = document.querySelector('#todoValue')
@@ -15,7 +15,7 @@ function createTodo(o){
     const li = document.createElement('li')//li를 createElement를 써서 생선시켜준후 li란변수에 할당을 시켜준다 그리고 어딘가에 존재하게함.
     const button = document.createElement('button') //button을 createElement로 생성을 시켜준후 button이란 변수파일을 만들어 할당시켜준다.
     ul.append(li) //위에 li의 변수에 할당시켜준 li을 ul의 안쪽에 넣어 <ul id="list"> <li> </li> </ul>이렇게 되게한다.
-    button.append("delete")//button안에 delete란 텍스트를 넣어준다.
+    button.append("지우기")//button안에 delete란 텍스트를 넣어준다.
     li.innerHTML = `<input type="checkbox">${o}` //타입을 input "text"에서 checkbox로 바꿔줌. 그리고 $(input.vlaue)를 통해 검색어를 받는다.
     li.append(button)//list의 안에 위에 생성된 delete를 = button을 넣어준다 현재 li는 <li><button></button>
     //<input>><li/>가 생성되어있음
