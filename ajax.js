@@ -1,7 +1,7 @@
 
 function selectAjax(){
     $.ajax({
-        url : 'http://127.0.0.1/TODO-LIST/select.php', 
+        url : 'http://127.0.0.1/TODO-LIST/ajax/select.php', 
         type : "get",
         dataType : "json",
         success : function(response){
@@ -19,7 +19,7 @@ function selectAjax(){
 function removeAjax(e, id){
     $.ajax({
         type:'GET',
-        url : 'http://127.0.0.1/TODO-LIST/delete.php?id='+id,
+        url : 'http://127.0.0.1/TODO-LIST/ajax/delete.php?id='+id,
         dataType : 'json',
         success: remove(e)
     })
@@ -33,7 +33,7 @@ function updateAjax(e, id, completed){
     }
     $.ajax({
         type:'GET',
-        url : `http://127.0.0.1/TODO-LIST/update.php?id=${id}&completed=${completed}`,
+        url : `http://127.0.0.1/TODO-LIST/ajax/update.php?id=${id}&completed=${completed}`,
         dataType : 'json',
         success: listColor(e)
     })
@@ -42,7 +42,7 @@ function updateAjax(e, id, completed){
 function createAjax(){
     $.ajax({
         type:'GET',
-        url : 'http://127.0.0.1/TODO-LIST/create.php?todo='+todoValue.value,
+        url : 'http://127.0.0.1/TODO-LIST/ajax/create.php?todo='+todoValue.value,
         dataType : 'json',
         success: createTodo('',todoValue.value)
     })
