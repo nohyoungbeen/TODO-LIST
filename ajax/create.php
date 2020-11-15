@@ -12,7 +12,8 @@ $result = mysqli_query($conn, $sql);
 if($result == false){
     echo mysqli_error($conn);
 }
-echo "성공";
+$id = mysqli_insert_id($conn);
+echo $id;
 /*
 $returnData = [];
 while($row = mysqli_fetch_array($result)) {

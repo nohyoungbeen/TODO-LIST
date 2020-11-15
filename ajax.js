@@ -44,6 +44,8 @@ function createAjax(){
         type:'GET',
         url : 'http://127.0.0.1/TODO-LIST/ajax/create.php?todo='+todoValue.value,
         dataType : 'json',
-        success: createTodo('',todoValue.value)
+        success: function(id) {
+            createTodo(id, todoValue.value, 0)
+        }
     })
 }
