@@ -3,7 +3,7 @@
 //https://jsonplaceholder.typicode.com/todos
 
 $.ajax({
-    url : "https://jsonplaceholder.typicode.com/users/1/todos" , 
+    url : 'http://127.0.0.1/TODO-LIST/select.php', 
     type : "get",
     dataType : "json",
     success : function(response){
@@ -29,13 +29,32 @@ function createTodo(id, title , completed){
     checkbox.type = "checkbox"
     ul.append(li) 
     li.append(checkbox)
-    li.append(id+"-")
     li.append(title)
     button.append("지우기")
     li.append(button)
-    button.addEventListener('click', remove)
-    checkbox.addEventListener('click', listColor)
+    button.addEventListener('click', function(e){
+        $.ajax({
+            type:'GET',
+            url : 'http://127.0.0.1/TODO-LIST/delete.php?id='+id,
+            dataType : 'json',
+            success: remove(e)
+        })
+    })
+    //삭제부분의 ajax가 들어가는 부분
 
+    checkbox.addEventListener('click', function(e){
+        if(completed == 0){
+            completed = 1
+        }else if(completed == 1){
+            completed = 0
+        }
+        $.ajax({
+            type:'GET',
+            url : `http://127.0.0.1/TODO-LIST/update.php?id=${id}&completed=${completed}`,
+            dataType : 'json',
+            success: listColor(e)
+        })
+    })
     if( completed == true){
         checkbox.checked = true;
         li.classList.add('completed');
@@ -50,8 +69,14 @@ add.addEventListener('click', function(){
     if(input.value === ""){
         alert("값을 입력하세요. ")
     }else{
-        createTodo(input.value)
+        $.ajax({
+            type:'GET',
+            url : 'http://127.0.0.1/TODO-LIST/create.php?todo='+input.value,
+            dataType : 'json',
+            success: createTodo(input.value)
+        })
     }
+    
 })
 
 function remove(e){
